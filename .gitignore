@@ -1,0 +1,7 @@
+.idea/.gitignore
+.idea/compiler.xml
+.idea/jarRepositories.xml
+.idea/misc.xml
+.idea/libraries/mysql_connector_java_8_0_25.xml
+target/classes/Conexion.class
+target/classes/Main.class
