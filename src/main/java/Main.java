@@ -1,12 +1,32 @@
 import java.sql.Connection;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Conexion conexion = new Conexion();
-        try(Connection cnx = conexion.get_conection()){
 
-        }catch (Exception e){
-            System.out.println(e);
-        }
+        Scanner sc = new Scanner(System.in);
+
+        int option = 0;
+
+        do{
+            System.out.println("Seleccione una opcion");
+            System.out.println("1. Registrese.");
+            System.out.println("2. Iniciar Sesion");
+            System.out.println("0. Salir");
+
+            option = sc.nextInt();
+
+            switch (option){
+                case 1:
+                    UserService.signUp();
+                    break;
+                case 2:
+                    UserService.signIn();
+                    break;
+                default:
+                    break;
+            }
+
+        }while(option != 0);
     }
 }
