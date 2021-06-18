@@ -26,7 +26,8 @@ public class CreateUser {
             System.out.println(e);
         }
     }
-    public static void logIn(){
+
+    public static void viewUsers(){
         Conexion db_connect = new Conexion() ;
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -50,4 +51,21 @@ public class CreateUser {
             System.out.println(e);
         }
     }
+    public static void logIn(String user_name){
+        Conexion db_connect = new Conexion() ;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        try(Connection conexion = db_connect.get_conection()) {
+            String query = "SELECT * FROM users WHERE user_name = ?";
+            ps = conexion.prepareStatement(query);
+            ps.setString(1, "user_name");
+            rs = ps.executeQuery();
+        }catch (SQLException e){
+                System.out.println(e);
+                System.out.println("No se pudo iniciar sesion con este usuario");
+            }
+    }
+
+
 }
